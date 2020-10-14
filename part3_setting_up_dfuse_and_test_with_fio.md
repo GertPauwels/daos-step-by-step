@@ -5,17 +5,17 @@ Run fio on the mounted folder.
 ## Prerequisites
 Have DAOS up and running on a single node. The steps in this document are the continuation of [Part 2 - Configuring SCM and NVMe](part2_modify_daos_server_yml_to_use_SCM_and_NVMe.md). It will also work on a running DAOS system on other Operating Systems or with a similar SCM and NVMe configuration.
 
-A server system with Storage Class Memory e.g. Intel&reg; Optane&trade; Persistent Memory and an minimum one NVMe SSD is required.
+A server system with Storage Class Memory e.g. Intel&reg; Optane&trade; Persistent Memory and a minimum one NVMe SSD is required.
 ## Create pool
 ```console
- $  dmg -i pool create --scm-size=30G --nvme-size=300G
+ $ dmg -i pool create --scm-size=30G --nvme-size=300G
 ```
 Expected output:
 		
 	Pool-create command SUCCEEDED: UUID: fd3110dd-8ac2-495c-a21a-dbeecaa3be05, Service replicas: 0
 Check existing pools:
 ```console
- $  dmg -i pool list
+ $ dmg -i pool list
 ```
 Expected output:
 
@@ -43,14 +43,14 @@ Expected output:
 	Filesystem      Size  Used Avail Use% Mounted on
 	dfuse           308G   13K  308G   1% /mnt/mycontainer
 ## Touch the mounted directory
-The step is not necessary. If touching a file does not return an error it means the directory is created and accessable.
+The step is not necessary. If touching a file does not return an error, it means the directory is created and accessible.
 ```console
  $ touch /mnt/mycontainer/myfile
 ```
 
 ## Validate with fio
 Any IO benchmark application will work.
-The command below will run random write workload. It will will write 1GB of data (8 x 128MB) and will do 4K Random Write blocks for 60 seconds.
+The command below will run random write workload. It will write 1GB of data (8 x 128MB) and will do 4K Random Write blocks for 60 seconds.
 ```console
  $ fio --name=random-write --ioengine=pvsync --rw=randwrite --bs=4k --size=128M --nrfiles=4 --directory=/mnt/mycontainer --numjobs=8 --iodepth=16 --runtime=60 --time_based --direct=1 --buffered=0 --randrepeat=0 --norandommap --refill_buffers --group_reporting
 ```

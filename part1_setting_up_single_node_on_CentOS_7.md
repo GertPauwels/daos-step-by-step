@@ -12,7 +12,7 @@ Create a bootable USB medium from the ISO image.
 
 Upon booting the CentOS 7 ISO file, you can begin the installation process.
 
-Configure *Software Selection* and select *Server with GUI*. *Server with GUI* is used for the step-by-setp guide, other selections are also possible.  
+Configure *Software Selection* and select *Server with GUI*. *Server with GUI* is used for the step-by-step guide, other selections are also possible.  
 
 ## Install DAOS from RPM
 Log in into CentOS as **root** user.
@@ -157,7 +157,7 @@ In the second terminal, run:
 Expected output:
 	
 	Listening on /var/run/daos_agent/agent.sock
-Hit *Enter key* to return back to the command line.
+Hit *Enter key* to return to the command line.
 
 Note:
 - Use the -i option to connect without using certificates. The option is needed as there are no certificates generated yet.

@@ -63,7 +63,7 @@ This command will return nothing. There are namespace create yet after creating 
 ```console
  $ ndctl create-namespace
 ```
-Expectd output:
+Expected output:
 
 	{
 	  "dev":"namespace1.0",
@@ -167,7 +167,7 @@ The value *dcpm* for **scm_class** defines Intel&reg; Optane&trade; Persistent M
 
 The value for **scm_mount** defines where the Intel&reg; Optane&trade; Persistent Memory will be mounted.
 
-The value for **scm_list** is a list of linux devices. The output of **daos_server storage scan** shows this system has two Intel&reg; Optane&trade; Persistent Memory devices /dev/pmem0 and /dev/pmem1. Only one device will be configured here. For performance reasons it is recommended to configure a DAOS server instance with devices all connected to the same CPU. The **daos_server.yml** config file above has only one server definition part. The key **first_core** has value *0* indication this server definition part is configuring CPU0. In the output of **daos_server storage scan** it is shown that */dev/pmem0* is conected to CPU0.
+The value for **scm_list** is a list of linux devices. The output of **daos_server storage scan** shows this system has two Intel&reg; Optane&trade; Persistent Memory devices /dev/pmem0 and /dev/pmem1. Only one device will be configured here. For performance reasons it is recommended to configure a DAOS server instance with devices all connected to the same CPU. The **daos_server.yml** config file above has only one server definition part. The key **first_core** has value *0* indication this server definition part is configuring CPU0. In the output of **daos_server storage scan** it is shown that */dev/pmem0* is connected to CPU0.
 
 ### NMVe storage is added by the following part:
 
@@ -175,7 +175,7 @@ The value for **scm_list** is a list of linux devices. The output of **daos_serv
   	    bdev_list: ["0000:5e:00.0"]
 The value *nvme* for **bdev_class** defines one or more NVMe devices are used.
 
-The value for **scm_list** is a list of PCIe addresses of NVMe/PCIe devices. The output of **daos_server storage scan** shows this system has four NVMe SSD devices. Only one device will be configured here, but the list can contain more devices. In the output of **daos_server storage scan** it is shown that *0000:5e:00.0* and *0000:5f:00.0* are conected to CPU0. 
+The value for **scm_list** is a list of PCIe addresses of NVMe/PCIe devices. The output of **daos_server storage scan** shows this system has four NVMe SSD devices. Only one device will be configured here, but the list can contain more devices. In the output of **daos_server storage scan** it is shown that *0000:5e:00.0* and *0000:5f:00.0* are connected to CPU0. 
 
 ## Start DAOS server
 Open a terminal and run 
@@ -197,7 +197,7 @@ In the second terminal, run:
 Expected output:
 	
 	Listening on /var/run/daos_agent/agent.sock
-Hit *Enter key* to return back to the command line.
+Hit *Enter key* to return to the command line.
 
 The environment variable **OFI_INTERFACE** is need in the terminal in which you run a client application to tell the application which network interface to use:
 ```console
